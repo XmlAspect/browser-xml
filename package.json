@@ -1,0 +1,30 @@
+{
+  "name": "@xmlaspect/browser-xml",
+  "version": "1.0.0",
+  "description": "XML, XPath, XSLT in-browser api. IE11+",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XmlAspect/browser-xml.git"
+  },
+  "keywords": [
+    "XML",
+    "XPath",
+    "XSLT",
+    "cross-browser",
+    "API",
+    "JS",
+    "IE",
+    "Chrome",
+    "Firefox"
+  ],
+  "author": "suns",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/XmlAspect/browser-xml/issues"
+  },
+  "homepage": "https://github.com/XmlAspect/browser-xml#readme"
+}
