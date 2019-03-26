@@ -8,10 +8,15 @@
     <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
   </head>
   <body>
+    <script type="module">
+      import Xml from "../index.js";
+      window.Xml = Xml;
+    </script>
     <script>
       // Load and run all tests (.html, .js):
       WCT.loadSuites([
-        'browser-xml_test.html'
+        'browser-xml_test.html',
+        'js_test.html'
       ]);
     </script>
   </body>
