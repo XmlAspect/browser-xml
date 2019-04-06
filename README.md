@@ -9,8 +9,13 @@ The npm module includes the sources in es6 format which could be consumed by mod
 and binary compiled into ES5 AMD module for IE.
 
 # Use
+There is no external dependencies, library is one file JS. 
+
+polymer-cli is internal development dependency and used only for self-test and ES5 binary compilation. 
+It is not required for library use. 
+
 ## es6
-Install as dependency
+Install as dependency into your npm project.
 ```
 $ npm i -P "@xmlaspect/browser-xml"
 ```
@@ -23,7 +28,7 @@ let  nodes  = browserXml.XPath( '//my-el[@name="abc"]', xmlDoc );
 
 let renderedString = browserXml.transform( xml, xslUrl );
 ```
-See more in [test sources](test/test_base.js). 
+See more samples in [test sources](https://github.com/XmlAspect/browser-xml/blob/master/test/test.js). 
  
 ## AMD  
 [AMD test sources](https://github.com/amdharness/AmdHarness-amd-xml/blob/master/test/test_base.js)
@@ -48,7 +53,8 @@ $ npm run test
 ```
 
 This library is set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). 
-Run `polymer test` to run test suite locally.
+Run `polymer test` to run test suite locally or open test page in browser http://127.0.0.1:8081/test/index.html
+
 
 ## build
 ```

@@ -91,6 +91,39 @@ suite('browser-xml', () =>
             assert( ret.nodeName == 'leave' );
         });
     });
+    const O2X =
+        [   {s:'{a:1}'    , t:'<root><a>1</a></root>'}
+        ,   {s:'[1,"str"]', t:'<root><r>1</r><r>str</r></root>'}
+        ];
+    const str2o = e=>( { ...e, o:eval(`(${e.s})` ) } );
+    suite('Xml.o2xml', () =>
+    {
+        [   ...O2X,
+        ,   {s:'"str"'    , t:"<root>str</root>"}
+        ,   {s:'"<xmlStr"', t:"<root>&lt;xmlStr</root>"}
+        ,   {s:'"not xml<"',t:"<root>not xml&lt;</root>"}
+        ].map( str2o )
+        .map( e=> test( `Xml.o2xml( ${e.s} )`, ()=>
+            assert.equal( Xml.toXmlString( Xml.o2xml( e.o ) ), e.t )
+        ));
+    });
+    suite('Xml.toXmlString', () =>
+    {
+        [   ...O2X,
+        ,   {s:'"str"'    , t:'<r><![CDATA[str]]></r>'}
+        ,   {s:'"<xmlStr"', t:"<xmlStr"}
+        ,   {s:'"not xml<"',t:"<r><![CDATA[not xml<]]></r>"}
+        ].map( str2o )
+        .map( e=> test( `Xml.toXmlString( ${e.s} )`, ()=>
+            assert.equal( Xml.toXmlString( e.o ), e.t )
+        ));
+
+        test( 'Xml.toXmlString( {a:1} )', function()
+        {
+            var t = Xml.toXmlString( { a: 1 } );
+            assert( t === '<root><a>1</a></root>' );
+        } );
+    });
 });
 
 function NOP(a){ return a;}

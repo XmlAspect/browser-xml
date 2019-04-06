@@ -26,7 +26,8 @@ var mod =
                 }
 ,	XPath_nl : XPath_nl
 ,	$ : XPath_nl
-,	o2xml			: object2Xml // ( o, tag, node )
+,	o2xml			: object2Xml // ( o, tag=<root>, node=CrateElement() )
+,   toXmlString     : toXmlString
 ,	createElement 	: createElement
 ,	cleanElement 	: cleanElement
 ,	DEFAULT_XML		: DEFAULT_XML
@@ -220,7 +221,7 @@ object2Xml( o, tag, node )
     // returns <root><aa><r>1</r><r>1</r></aa><c>qwe</c></root>
 
     node = node || mod.createXml().documentElement;
-    var n = createEl(tag);
+    var n = createEl( tag || 'root');
     if( o instanceof Array )
         o.forEach( function( el )
         {	object2Xml( el, 'r', n );	});
@@ -233,6 +234,24 @@ object2Xml( o, tag, node )
     }
     return n;
     function createEl(k){ var e = mod.createElement( k, node.ownerDocument || node ); node.appendChild(e); return e; }
+}
+    function
+toXmlString( xml )
+{
+    if( isXmlDom( xml ) )
+        return xml.xml || xml.outerHTML;
+    if( typeof xml === 'string' )
+    {   if( xml.charAt(0) === '<' )// if started with '<', broken or not, return same string
+            return xml;
+        return '<r><![CDATA['+xml.replace( /\\</g ,'&#60;' )+']]></r>'
+    }
+    var x = object2Xml(xml);
+    return x.xml || x.outerHTML;
+}
+    function
+isXmlDom( xml )
+{
+    return xml && ( xml instanceof Node || (typeof xml ==='object' && 'transformNode' in xml ) );
 }
     function
 createElement( name, document, nsUrl )

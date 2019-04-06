@@ -1,10 +1,10 @@
 {
   "name": "@xmlaspect/browser-xml",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "XML, XPath, XSLT in-browser api. IE11+",
   "main": "index.js",
   "scripts": {
-    "test": "polymer test",
+    "test": "polymer test --npm",
     "build": "polymer build"
   },
   "repository": {
