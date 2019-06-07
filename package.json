@@ -1,6 +1,6 @@
 {
   "name": "@xmlaspect/browser-xml",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "XML, XPath, XSLT in-browser api. IE11+",
   "main": "index.js",
   "scripts": {

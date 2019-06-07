@@ -91,6 +91,20 @@ suite('browser-xml', () =>
             assert( ret.nodeName == 'leave' );
         });
     });
+
+    test('Xml.fromXmlStr( xmlStr )', function()
+    {   var xmlDoc = Xml.fromXmlStr("<r><a>A</a></r>");
+        var ret = Xml.XPath_node( "//a", xmlDoc );
+        assert( ret.nodeName == 'a' );
+    });
+
+    test('Xml.nodeText(node)', function()
+    {   var xmlDoc = Xml.fromXmlStr("<r><a>A</a></r>");
+        var node = Xml.XPath_node( "//a", xmlDoc );
+        var text = Xml.nodeText(node);
+        assert( text == 'A' );
+    });
+
     const O2X =
         [   {s:'{a:1}'    , t:'<root><a>1</a></root>'}
         ,   {s:'[1,"str"]', t:'<root><r>1</r><r>str</r></root>'}

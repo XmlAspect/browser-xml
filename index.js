@@ -10,6 +10,7 @@ var mod =
 ,	getXml		: getXml
 ,	onSetHeader	: function(xhr){}
 ,	createXml	: createXml
+,   fromXmlStr  : fromXmlStr
 ,	transform	: transform 	// ( xml, xsl, el )
 ,	XPath_node	: function XPath_node( xPath, node )
                 {
@@ -30,6 +31,7 @@ var mod =
 ,   toXmlString     : toXmlString
 ,	createElement 	: createElement
 ,	cleanElement 	: cleanElement
+,   nodeText        :  function nodeText( node ){ return node.textContent || node.text }// IE compatibility
 ,	DEFAULT_XML		: DEFAULT_XML
 ,	promise			: CreatePromise
 };
@@ -43,6 +45,13 @@ if( 'ActiveXObject' in window ) // IE shim
         if( el )
             el.innerHTML = txt;
         return txt;
+    };
+
+    mod.fromXmlStr = function fromXmlStr( xmlString )
+    {
+        var doc = new ActiveXObject( "Msxml2.DOMDocument.6.0" );
+        doc.loadXML( xmlString );
+        return doc;
     };
     mod.createXml = function createXml()
     {
@@ -213,6 +222,12 @@ createXml()
 {
     return 	new DOMParser().parseFromString( DEFAULT_XML, "application/xml" );
 }
+    function
+fromXmlStr( xmlStr )
+{
+    return 	new DOMParser().parseFromString( xmlStr, "application/xml" );
+}
+
 // todo xml2Object, tests
     function
 object2Xml( o, tag, node )
