@@ -31,7 +31,7 @@ var mod =
 ,   toXmlString     : toXmlString
 ,	createElement 	: createElement
 ,	cleanElement 	: cleanElement
-,   nodeText        :  function nodeText( node ){ return node.textContent || node.text }// IE compatibility
+,   nodeText        :  function nodeText( node ){ return node && (node.textContent || node.text) }// IE compatibility
 ,	DEFAULT_XML		: DEFAULT_XML
 ,	promise			: CreatePromise
 };

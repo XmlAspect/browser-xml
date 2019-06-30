@@ -98,6 +98,11 @@ suite('browser-xml', () =>
         assert( ret.nodeName == 'a' );
     });
 
+    test('Xml.nodeText(undefined)', function()
+    {   var text = Xml.nodeText(undefined);
+        assert( text === undefined );
+    });
+
     test('Xml.nodeText(node)', function()
     {   var xmlDoc = Xml.fromXmlStr("<r><a>A</a></r>");
         var node = Xml.XPath_node( "//a", xmlDoc );
