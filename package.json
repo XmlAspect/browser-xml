@@ -1,41 +1,39 @@
 {
-  "name": "@xmlaspect/browser-xml",
-  "version": "1.0.4",
-  "description": "XML, XPath, XSLT in-browser api. IE11+",
-  "main": "index.js",
-  "scripts": {
-    "test": "polymer test --npm",
-    "build": "polymer build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/XmlAspect/browser-xml.git"
-  },
-  "keywords": [
-    "XML",
-    "XPath",
-    "XSLT",
-    "cross-browser",
-    "API",
-    "JS",
-    "IE",
-    "Chrome",
-    "Firefox"
-  ],
-  "author": "suns",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/XmlAspect/browser-xml/issues"
-  },
-  "homepage": "https://github.com/XmlAspect/browser-xml#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "@polymer/polymer": "^3.0.5",
-    "@polymer/iron-demo-helpers": "^3.0.2",
-    "@polymer/test-fixture": "^4.0.2",
-    "@webcomponents/webcomponentsjs": "^2.2.7",
-    "chai": "^4.2.0",
-    "mocha": "^5.2.0",
-    "wct-mocha": "^1.0.0"
-  }
+    "name": "@xmlaspect/browser-xml",
+    "version": "1.0.5",
+    "description": "XML, XPath, XSLT in-browser api in ESM. IE11+",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo 'test is implemented in https://github.com/sashafirsov/slotted-element-test' && exit 0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/XmlAspect/browser-xml.git"
+    },
+    "keywords": [
+        "XML",
+        "XPath",
+        "XSLT",
+        "cross-browser",
+        "API",
+        "JS",
+        "IE",
+        "Chrome",
+        "Firefox"
+    ],
+    "author": {
+        "name": "Sasha Firsov",
+        "email": "suns@simulationworks.com",
+        "url": "https://blog.firsov.net/"
+    },
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/XmlAspect/browser-xml/issues"
+    },
+    "homepage": "https://github.com/XmlAspect/browser-xml#readme",
+    "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/sashafirsov"
+    }
 }
